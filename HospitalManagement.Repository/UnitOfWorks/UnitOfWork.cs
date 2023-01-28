@@ -22,7 +22,7 @@ namespace HospitalManagement.Repository.UnitOfWorks
             _context.SaveChanges();
         }
 
-        public async Task ICommitAsync()
+        public async Task CommitAsync()
         {
             await _context.SaveChangesAsync();
         }
