@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HospitalManagement.Core.UnitOfWorks
+namespace HospitalManagement.Core.DTOs
 {
-    public interface IUnitOfWork
+    public class BuildingDto : BaseDto
     {
-        Task CommitAsync();
-
-        void Commit();
+        public string Name { get; set; }
     }
 }

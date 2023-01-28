@@ -30,6 +30,7 @@ namespace HospitalManagement.Repository.Repositories
         public async Task AddRangeAsync(IEnumerable<T> entities)
         {
             await _dbset.AddRangeAsync(entities);
+           
         }
 
         public async Task<bool> AnyAsync(Expression<Func<T, bool>> expression)
@@ -37,7 +38,7 @@ namespace HospitalManagement.Repository.Repositories
             return await _dbset.AnyAsync(expression);
         }
 
-        public IQueryable<T> GetAll(Expression<Func<T, bool>> expression)
+        public IQueryable<T> GetAll()
         {
             return _dbset.AsNoTracking().AsQueryable();
         }
