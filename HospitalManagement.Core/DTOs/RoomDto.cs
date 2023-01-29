@@ -11,5 +11,7 @@ namespace HospitalManagement.Core.DTOs
         public int Number { get; set; }
 
         public int Floor { get; set; }
+
+        public int BuildingId { get; set; }
     }
 }
