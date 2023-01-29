@@ -1,8 +1,35 @@
+using HospitalManagement.Web.Services;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddHttpClient<ProductApiService>(opt =>
+{
+
+    opt.BaseAddress = new Uri(builder.Configuration["BaseUrl"]);
+
+});
+builder.Services.AddHttpClient<WareHouseApiService>(opt =>
+{
+
+    opt.BaseAddress = new Uri(builder.Configuration["BaseUrl"]);
+
+});
+builder.Services.AddHttpClient<BuildingApiService>(opt =>
+{
+
+    opt.BaseAddress = new Uri(builder.Configuration["BaseUrl"]);
+
+});
+builder.Services.AddHttpClient<RoomApiService>(opt =>
+{
+
+    opt.BaseAddress = new Uri(builder.Configuration["BaseUrl"]);
+
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
