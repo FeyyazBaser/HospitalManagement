@@ -28,7 +28,7 @@ namespace HospitalManagement.Service.Services
         {
             var products= await _productRepository.GetProductsWithWareHouse();
 
-            var productsDto=_mapper.Map<List< ProductWithWareHouseDto>>(products);
+            var productsDto=_mapper.Map<List<ProductWithWareHouseDto>>(products);
 
             return CustomResponseDto<List<ProductWithWareHouseDto>>.Success(200,productsDto);
         }

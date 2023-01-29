@@ -2,6 +2,7 @@
 using HospitalManagement.Core.DTOs;
 using HospitalManagement.Core.Entities;
 using HospitalManagement.Core.Service;
+using HospitalManagement.Service.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,10 +14,13 @@ namespace HospitalManagement.API.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IService<Room> _service;
-        public RoomsController(IService<Room> service, IMapper mapper)
+        private readonly IRoomService _roomService;
+
+        public RoomsController(IService<Room> service, IMapper mapper, IRoomService roomService)
         {
             _mapper = mapper;
             _service = service;
+            _roomService = roomService;
         }
         [HttpGet]
         public async Task<IActionResult> All()
@@ -25,7 +29,7 @@ namespace HospitalManagement.API.Controllers
             var RoomDtos = _mapper.Map<List<RoomDto>>(Rooms.ToList());
             return CreateActionResult(CustomResponseDto<List<RoomDto>>.Success(200, RoomDtos));
         }
-
+ 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
