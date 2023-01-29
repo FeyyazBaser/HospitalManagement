@@ -13,10 +13,13 @@ namespace HospitalManagement.API.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IService<Product> _service;
-        public ProductsController(IService<Product> service, IMapper mapper)
+        private readonly IProductService _productService;
+
+        public ProductsController(IService<Product> service, IMapper mapper,IProductService productService)
         {
             _mapper = mapper;
             _service = service;
+            _productService = productService;
         }
         [HttpGet]
         public async Task<IActionResult> All()
@@ -25,6 +28,13 @@ namespace HospitalManagement.API.Controllers
             var productDtos = _mapper.Map<List<ProductDto>>(products.ToList());
             return CreateActionResult(CustomResponseDto<List<ProductDto>>.Success(200, productDtos));
         }
+
+        [HttpGet("[action]")]
+        public async Task<IActionResult> GetProductsWithWareHouse()
+        {
+            return CreateActionResult(await _productService.GetProductsWithWareHouse());
+        }
+
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)

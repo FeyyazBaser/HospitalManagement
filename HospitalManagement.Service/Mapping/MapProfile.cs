@@ -17,6 +17,7 @@ namespace HospitalManagement.Service.Mapping
             CreateMap<WareHouse,WareHouseDto>().ReverseMap();
             CreateMap<Room,RoomDto>().ReverseMap();
             CreateMap<Building,BuildingDto>().ReverseMap();
+            CreateMap<Product,ProductWithWareHouseDto>().ReverseMap();
 
         }
     }
