@@ -2,6 +2,7 @@
 using HospitalManagement.Core.DTOs;
 using HospitalManagement.Core.Entities;
 using HospitalManagement.Core.Service;
+using HospitalManagement.Service.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,8 +14,10 @@ namespace HospitalManagement.API.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IService<WareHouse> _service;
-        public WareHousesController(IService<WareHouse> service, IMapper mapper)
+        private readonly IWareHouseService _wareHouseService;
+        public WareHousesController(IService<WareHouse> service, IMapper mapper,IWareHouseService wareHouseService)
         {
+            _wareHouseService=wareHouseService;
             _mapper = mapper;
             _service = service;
         }
@@ -32,6 +35,12 @@ namespace HospitalManagement.API.Controllers
             var WareHouse = await _service.GetByIdAsync(id);
             var WareHouseDto = _mapper.Map<WareHouseDto>(WareHouse);
             return CreateActionResult(CustomResponseDto<WareHouseDto>.Success(200, WareHouseDto));
+        }
+
+        [HttpGet("[action]")]
+        public async Task<IActionResult> GetWareHousesWithBuilding()
+        {
+            return CreateActionResult(await _wareHouseService.GetWareHousesWithBuilding());
         }
 
         [HttpPost]

@@ -11,7 +11,12 @@ namespace HospitalManagement.Web.Services
 
             _httpClient = httpClient;
         }
+        public async Task<List<RoomWithBuildingDto>> GetRoomsWithBuildingAsync()
+        {
+            var response = await _httpClient.GetFromJsonAsync<CustomResponseDto<List<RoomWithBuildingDto>>>("rooms/GetRoomsWithBuilding");
 
+            return response.Data;
+        }
         public async Task<List<RoomDto>> GetAllAsync()
         {
             var response = await _httpClient.GetFromJsonAsync<CustomResponseDto<List<RoomDto>>>("rooms");

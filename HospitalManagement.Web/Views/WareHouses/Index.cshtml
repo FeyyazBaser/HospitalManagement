@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Index";
 }
-@model List<WareHouseDto>
+@model List<WareHouseWithBuildingDto>
 <a class="btn btn-primary" asp-controller="WareHouses" asp-action="Save">Save WareHouse</a>
 <table class="table table-striped">
     <thead>
@@ -9,6 +9,7 @@
             <td>Id</td>
             <td>Name</td> 
             <td>Floor</td>
+            <td>Building</td>
             <td>CreatedDate</td>
             <td>Actions</td>
 
@@ -22,6 +23,7 @@
                 <td>@item.Id</td>
                 <td>@item.Name</td>
                 <td>@item.Floor</td>
+                <td>@item.Building.Name</td>
                 <td>@item.CreatedDate</td>
                 <td>
                     <a class="btn btn-warning" asp-controller="WareHouses" asp-action="Update" asp-route-id="@item.Id">Update</a>

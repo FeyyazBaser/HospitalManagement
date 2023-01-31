@@ -38,6 +38,12 @@ namespace HospitalManagement.API.Controllers
             return CreateActionResult(CustomResponseDto<RoomDto>.Success(200, RoomDto));
         }
 
+        [HttpGet("[action]")]
+        public async Task<IActionResult> GetRoomsWithBuilding()
+        {
+            return CreateActionResult(await _roomService.GetRoomsWithBuilding());
+        }
+
         [HttpPost]
         public async Task<IActionResult> Save(RoomDto RoomDto)
         {

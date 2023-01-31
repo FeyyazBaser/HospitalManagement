@@ -8,6 +8,6 @@ namespace HospitalManagement.Core.DTOs
 {
     public class RoomWithBuildingDto:RoomDto
     {
-        public BuildingDto BuildingDto { get; set; }
+        public BuildingDto Building { get; set; }
     }
 }

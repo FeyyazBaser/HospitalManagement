@@ -20,7 +20,7 @@ namespace HospitalManagement.Web.Controllers
         public async Task<IActionResult> Index()
         {
 
-            return View(await _wareHouseApiService.GetAllAsync());
+            return View(await _wareHouseApiService.GetRoomsWithBuildingAsync());
         }
 
         public async Task<IActionResult> Save()
