@@ -9,6 +9,7 @@ using HospitalManagement.Service.Services;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -30,6 +31,7 @@ builder.Services.AddScoped<IRoomService, RoomService>();
 
 builder.Services.AddScoped<IWareHouseRepository, WareHouseRepository>();
 builder.Services.AddScoped<IWareHouseService, WareHouseService>();
+
 
 builder.Services.AddDbContext<AppDbContext>(x =>
 {

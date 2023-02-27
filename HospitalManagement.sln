@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HospitalManagement.Core", "HospitalManagement.Core\HospitalManagement.Core.csproj", "{3AF2AA98-D165-4100-8B2A-5F5FF3DB0F54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HospitalManagement.Core", "HospitalManagement.Core\HospitalManagement.Core.csproj", "{3AF2AA98-D165-4100-8B2A-5F5FF3DB0F54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HospitalManagement.Repository", "HospitalManagement.Repository\HospitalManagement.Repository.csproj", "{FE5BC4EC-D67F-446A-97F9-E08C5BDB34C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HospitalManagement.Repository", "HospitalManagement.Repository\HospitalManagement.Repository.csproj", "{FE5BC4EC-D67F-446A-97F9-E08C5BDB34C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HospitalManagement.Service", "HospitalManagement.Service\HospitalManagement.Service.csproj", "{8C7D209A-F932-43D0-8D89-E2AE8E813623}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HospitalManagement.Service", "HospitalManagement.Service\HospitalManagement.Service.csproj", "{8C7D209A-F932-43D0-8D89-E2AE8E813623}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HospitalManagement.API", "HospitalManagement.API\HospitalManagement.API.csproj", "{A100F5FF-1CF6-4111-83F3-0C981BB6D0E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HospitalManagement.API", "HospitalManagement.API\HospitalManagement.API.csproj", "{A100F5FF-1CF6-4111-83F3-0C981BB6D0E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HospitalManagement.Web", "HospitalManagement.Web\HospitalManagement.Web.csproj", "{3E2E0829-088E-41ED-A0A3-BB7E3D521762}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HospitalManagement.Web", "HospitalManagement.Web\HospitalManagement.Web.csproj", "{3E2E0829-088E-41ED-A0A3-BB7E3D521762}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HospitalManagement.Caching", "HospitalManagement.Caching\HospitalManagement.Caching.csproj", "{83638172-8333-4754-96F7-AEFE42376D71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HospitalManagement.Caching", "HospitalManagement.Caching\HospitalManagement.Caching.csproj", "{83638172-8333-4754-96F7-AEFE42376D71}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HospitalManagement.AWS", "HospitalManagement\HospitalManagement.AWS.csproj", "{D8266F34-ED43-4502-A6E4-B521CDDEADCA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{83638172-8333-4754-96F7-AEFE42376D71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83638172-8333-4754-96F7-AEFE42376D71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83638172-8333-4754-96F7-AEFE42376D71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8266F34-ED43-4502-A6E4-B521CDDEADCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8266F34-ED43-4502-A6E4-B521CDDEADCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8266F34-ED43-4502-A6E4-B521CDDEADCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8266F34-ED43-4502-A6E4-B521CDDEADCA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
