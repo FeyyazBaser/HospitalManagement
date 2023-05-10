@@ -57,14 +57,13 @@ builder.Services.AddSwaggerGen(c =>
         Title = "Hospital Management",
         Version = "v1"
     });
-    c.AddSecurityDefinition("basic", new OpenApiSecurityScheme
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Description = "The API Key to access the API",
-        Type = SecuritySchemeType.Http,
+        Type = SecuritySchemeType.ApiKey,
         Name = "Authorization",
         In = ParameterLocation.Header,
         Scheme = "bearer",
-        BearerFormat = "JWT",
 
     });
     c.AddSecurityRequirement(new OpenApiSecurityRequirement{
@@ -74,7 +73,7 @@ builder.Services.AddSwaggerGen(c =>
                         Reference = new OpenApiReference
                         {
                             Type = ReferenceType.SecurityScheme,
-                            Id="basic"
+                            Id="Bearer"
                         }
                     },
                     new String[]{}
