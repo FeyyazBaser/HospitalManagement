@@ -2,6 +2,7 @@
 using HospitalManagement.Core.DTOs;
 using HospitalManagement.Core.Entities;
 using HospitalManagement.Core.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,6 +10,7 @@ namespace HospitalManagement.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class BuildingsController : CustomBaseController
     {
         private readonly IMapper _mapper;
