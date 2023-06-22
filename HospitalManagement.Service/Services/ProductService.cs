@@ -24,13 +24,13 @@ namespace HospitalManagement.Service.Services
             _productRepository = productRepository;
         }
 
-        public async Task<CustomResponseDto<List<ProductWithWareHouseDto>>> GetProductsWithWareHouse()
+        public async Task<CustomResponseDto<List<ProductWithWarehouseDto>>> GetProductsWithWarehouse()
         {
-            var products= await _productRepository.GetProductsWithWareHouse();
+            var products= await _productRepository.GetProductsWithWarehouse();
 
-            var productsDto=_mapper.Map<List<ProductWithWareHouseDto>>(products);
+            var productsDto=_mapper.Map<List<ProductWithWarehouseDto>>(products);
 
-            return CustomResponseDto<List<ProductWithWareHouseDto>>.Success(200,productsDto);
+            return CustomResponseDto<List<ProductWithWarehouseDto>>.Success(200,productsDto);
         }
     }
 }

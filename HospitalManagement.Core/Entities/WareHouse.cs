@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HospitalManagement.Core.Entities
 {
-    public class WareHouse:BaseEntity
+    public class Warehouse:BaseEntity
     {
         public string Name { get; set; }
 

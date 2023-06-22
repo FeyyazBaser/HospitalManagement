@@ -10,6 +10,6 @@ namespace HospitalManagement.Core.Repositories
     public interface IProductRepository:IGenericRepository<Product>
     {
 
-        Task<List<Product>> GetProductsWithWareHouse();
+        Task<List<Product>> GetProductsWithWarehouse();
     }
 }

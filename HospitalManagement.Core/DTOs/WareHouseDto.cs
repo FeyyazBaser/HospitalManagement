@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HospitalManagement.Core.DTOs
 {
-    public class WareHouseDto : BaseDto
+    public class WarehouseDto : BaseDto
     {
         public string Name { get; set; }
 

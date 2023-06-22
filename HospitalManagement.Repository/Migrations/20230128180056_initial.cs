@@ -48,7 +48,7 @@ namespace HospitalManagement.Repository.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "WareHouses",
+                name: "Warehouses",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -61,9 +61,9 @@ namespace HospitalManagement.Repository.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_WareHouses", x => x.Id);
+                    table.PrimaryKey("PK_Warehouses", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_WareHouses_Buildings_BuildingId",
+                        name: "FK_Warehouses_Buildings_BuildingId",
                         column: x => x.BuildingId,
                         principalTable: "Buildings",
                         principalColumn: "Id",
@@ -78,7 +78,7 @@ namespace HospitalManagement.Repository.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     Stock = table.Column<int>(type: "int", nullable: false),
-                    WareHouseId = table.Column<int>(type: "int", nullable: false),
+                    WarehouseId = table.Column<int>(type: "int", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -86,17 +86,17 @@ namespace HospitalManagement.Repository.Migrations
                 {
                     table.PrimaryKey("PK_Products", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Products_WareHouses_WareHouseId",
-                        column: x => x.WareHouseId,
-                        principalTable: "WareHouses",
+                        name: "FK_Products_Warehouses_WarehouseId",
+                        column: x => x.WarehouseId,
+                        principalTable: "Warehouses",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Products_WareHouseId",
+                name: "IX_Products_WarehouseId",
                 table: "Products",
-                column: "WareHouseId");
+                column: "WarehouseId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Rooms_BuildingId",
@@ -104,8 +104,8 @@ namespace HospitalManagement.Repository.Migrations
                 column: "BuildingId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_WareHouses_BuildingId",
-                table: "WareHouses",
+                name: "IX_Warehouses_BuildingId",
+                table: "Warehouses",
                 column: "BuildingId");
         }
 
@@ -118,7 +118,7 @@ namespace HospitalManagement.Repository.Migrations
                 name: "Rooms");
 
             migrationBuilder.DropTable(
-                name: "WareHouses");
+                name: "Warehouses");
 
             migrationBuilder.DropTable(
                 name: "Buildings");

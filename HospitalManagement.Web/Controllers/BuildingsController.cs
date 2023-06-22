@@ -8,22 +8,29 @@ namespace HospitalManagement.Web.Controllers
     public class BuildingsController : Controller
     {
         private readonly BuildingApiService _buildingApiService;
-       
 
 
+        string GetToken()
+        {
+            return HttpContext.Session.GetString("JwtToken");
+        }
         public BuildingsController(BuildingApiService buildingApiService)
         {
-            _buildingApiService= buildingApiService;
+            _buildingApiService = buildingApiService;
+
+
         }
+
 
         public async Task<IActionResult> Index()
         {
-
+            _buildingApiService.accessToken = GetToken();
             return View(await _buildingApiService.GetAllAsync());
         }
 
         public async Task<IActionResult> Save()
         {
+            _buildingApiService.accessToken = GetToken();
             var buildingsDto = await _buildingApiService.GetAllAsync();
 
             return View();
@@ -36,17 +43,19 @@ namespace HospitalManagement.Web.Controllers
 
             if (ModelState.IsValid)
             {
+                _buildingApiService.accessToken = GetToken();
                 await _buildingApiService.SaveAsync(buildingDto);
 
                 return RedirectToAction(nameof(Index));
             }
-     
+
             return View();
         }
 
 
         public async Task<IActionResult> Update(int id)
         {
+            _buildingApiService.accessToken = GetToken();
             var building = await _buildingApiService.GetByIdAsync(id);
 
             return View(building);
@@ -57,7 +66,7 @@ namespace HospitalManagement.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-
+                _buildingApiService.accessToken = GetToken();
                 await _buildingApiService.UpdateAsync(buildingDto);
 
                 return RedirectToAction(nameof(Index));
@@ -72,6 +81,7 @@ namespace HospitalManagement.Web.Controllers
 
         public async Task<IActionResult> Remove(int id)
         {
+            _buildingApiService.accessToken = GetToken();
             await _buildingApiService.RemoveAsync(id);
             return RedirectToAction(nameof(Index));
         }

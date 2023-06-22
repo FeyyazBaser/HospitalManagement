@@ -10,6 +10,6 @@ namespace HospitalManagement.Core.Service
 {
     public interface IProductService : IService<Product>
     {
-        Task<CustomResponseDto<List<ProductWithWareHouseDto>>> GetProductsWithWareHouse();
+        Task<CustomResponseDto<List<ProductWithWarehouseDto>>> GetProductsWithWarehouse();
     }
 }

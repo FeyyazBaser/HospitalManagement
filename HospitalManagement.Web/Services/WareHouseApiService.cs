@@ -2,55 +2,55 @@
 
 namespace HospitalManagement.Web.Services
 {
-    public class WareHouseApiService
+    public class WarehouseApiService
     {
         private readonly HttpClient _httpClient;
 
-        public WareHouseApiService(HttpClient httpClient)
+        public WarehouseApiService(HttpClient httpClient)
         {
 
             _httpClient = httpClient;
         }
-        public async Task<List<WareHouseWithBuildingDto>> GetRoomsWithBuildingAsync()
+        public async Task<List<WarehouseWithBuildingDto>> GetRoomsWithBuildingAsync()
         {
-            var response = await _httpClient.GetFromJsonAsync<CustomResponseDto<List<WareHouseWithBuildingDto>>>("warehouses/GetWareHousesWithBuilding");
+            var response = await _httpClient.GetFromJsonAsync<CustomResponseDto<List<WarehouseWithBuildingDto>>>("Warehouses/GetWarehousesWithBuilding");
 
             return response.Data;
         }
-        public async Task<List<WareHouseDto>> GetAllAsync()
+        public async Task<List<WarehouseDto>> GetAllAsync()
         {
-            var response = await _httpClient.GetFromJsonAsync<CustomResponseDto<List<WareHouseDto>>>("warehouses");
+            var response = await _httpClient.GetFromJsonAsync<CustomResponseDto<List<WarehouseDto>>>("Warehouses");
             return response.Data;
         }
-        public async Task<WareHouseDto> GetByIdAsync(int id)
+        public async Task<WarehouseDto> GetByIdAsync(int id)
         {
 
-            var response = await _httpClient.GetFromJsonAsync<CustomResponseDto<WareHouseDto>>($"warehouses/{id}");
+            var response = await _httpClient.GetFromJsonAsync<CustomResponseDto<WarehouseDto>>($"Warehouses/{id}");
             return response.Data;
 
         }
 
-        public async Task<WareHouseDto> SaveAsync(WareHouseDto newWarehouse)
+        public async Task<WarehouseDto> SaveAsync(WarehouseDto newWarehouse)
         {
-            var response = await _httpClient.PostAsJsonAsync("warehouses", newWarehouse);
+            var response = await _httpClient.PostAsJsonAsync("Warehouses", newWarehouse);
 
             if (!response.IsSuccessStatusCode) return null;
 
-            var responseBody = await response.Content.ReadFromJsonAsync<CustomResponseDto<WareHouseDto>>();
+            var responseBody = await response.Content.ReadFromJsonAsync<CustomResponseDto<WarehouseDto>>();
 
             return responseBody.Data;
 
 
         }
-        public async Task<bool> UpdateAsync(WareHouseDto newWarehouse)
+        public async Task<bool> UpdateAsync(WarehouseDto newWarehouse)
         {
-            var response = await _httpClient.PutAsJsonAsync("warehouses", newWarehouse);
+            var response = await _httpClient.PutAsJsonAsync("Warehouses", newWarehouse);
 
             return response.IsSuccessStatusCode;
         }
         public async Task<bool> RemoveAsync(int id)
         {
-            var response = await _httpClient.DeleteAsync($"warehouses/{id}");
+            var response = await _httpClient.DeleteAsync($"Warehouses/{id}");
 
             return response.IsSuccessStatusCode;
         }

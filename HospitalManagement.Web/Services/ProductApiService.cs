@@ -11,9 +11,9 @@ namespace HospitalManagement.Web.Services
             _httpClient = httpClient;
         }
 
-        public async Task<List<ProductWithWareHouseDto>> GetProductsWithCategoryAsync()
+        public async Task<List<ProductWithWarehouseDto>> GetProductsWithCategoryAsync()
         {
-            var response = await _httpClient.GetFromJsonAsync<CustomResponseDto<List<ProductWithWareHouseDto>>>("products/GetProductsWithWareHouse");
+            var response = await _httpClient.GetFromJsonAsync<CustomResponseDto<List<ProductWithWarehouseDto>>>("products/GetProductsWithWarehouse");
 
             return response.Data;
         }

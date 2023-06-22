@@ -30,9 +30,9 @@ namespace HospitalManagement.API.Controllers
         }
 
         [HttpGet("[action]")]
-        public async Task<IActionResult> GetProductsWithWareHouse()
+        public async Task<IActionResult> GetProductsWithWarehouse()
         {
-            return CreateActionResult(await _productService.GetProductsWithWareHouse());
+            return CreateActionResult(await _productService.GetProductsWithWarehouse());
         }
 
 

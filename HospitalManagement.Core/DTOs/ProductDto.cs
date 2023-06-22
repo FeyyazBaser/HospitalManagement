@@ -12,6 +12,6 @@ namespace HospitalManagement.Core.DTOs
 
         public int Stock { get; set; }
 
-        public int WareHouseId { get; set; }
+        public int WarehouseId { get; set; }
     }
 }

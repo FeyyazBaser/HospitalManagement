@@ -41,8 +41,8 @@ public class Startup
        services.AddScoped<IRoomRepository, RoomRepository>();
        services.AddScoped<IRoomService, RoomService>();
 
-       services.AddScoped<IWareHouseRepository, WareHouseRepository>();
-       services.AddScoped<IWareHouseService, WareHouseService>();
+       services.AddScoped<IWarehouseRepository, WarehouseRepository>();
+       services.AddScoped<IWarehouseService, WarehouseService>();
 
 
         services.AddDbContext<AppDbContext>(x =>

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace HospitalManagement.Core.DTOs
 {
-    public class ProductWithWareHouseDto:ProductDto
+    public class ProductWithWarehouseDto:ProductDto
     {
-        public WareHouseDto WareHouse { get; set; }
+        public WarehouseDto Warehouse { get; set; }
     }
 }

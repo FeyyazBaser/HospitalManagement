@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace HospitalManagement.Core.Repositories
 {
-    public interface IWareHouseRepository: IGenericRepository<WareHouse>
+    public interface IWarehouseRepository: IGenericRepository<Warehouse>
     {
-        Task<List<WareHouse>> GetWareHousesWithBuilding();
+        Task<List<Warehouse>> GetWarehousesWithBuilding();
     }
 }

@@ -33,8 +33,8 @@ builder.Services.AddScoped<IRoomRepository, RoomRepository>();
 builder.Services.AddScoped<IRoomService, RoomService>();
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 
-builder.Services.AddScoped<IWareHouseRepository, WareHouseRepository>();
-builder.Services.AddScoped<IWareHouseService, WareHouseService>();
+builder.Services.AddScoped<IWarehouseRepository, WarehouseRepository>();
+builder.Services.AddScoped<IWarehouseService, WarehouseService>();
 
 
 var key = Encoding.ASCII.GetBytes(builder.Configuration.GetSection("AppSettings:Token").Value);

@@ -5,22 +5,22 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace HospitalManagement.Web.Controllers
 {
-    public class WareHousesController : Controller
+    public class WarehousesController : Controller
     {
-        private readonly WareHouseApiService _wareHouseApiService;
+        private readonly WarehouseApiService _WarehouseApiService;
         private readonly BuildingApiService _buildingApiService;
        
 
-        public WareHousesController(WareHouseApiService wareHouseApiService,BuildingApiService buildingApiService)
+        public WarehousesController(WarehouseApiService WarehouseApiService,BuildingApiService buildingApiService)
         {
-            _wareHouseApiService = wareHouseApiService; 
+            _WarehouseApiService = WarehouseApiService; 
             _buildingApiService = buildingApiService;
         }
 
         public async Task<IActionResult> Index()
         {
 
-            return View(await _wareHouseApiService.GetRoomsWithBuildingAsync());
+            return View(await _WarehouseApiService.GetRoomsWithBuildingAsync());
         }
 
         public async Task<IActionResult> Save()
@@ -33,13 +33,13 @@ namespace HospitalManagement.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Save(WareHouseDto wareHouseDto)
+        public async Task<IActionResult> Save(WarehouseDto WarehouseDto)
 
         {
 
             if (ModelState.IsValid)
             {
-                await _wareHouseApiService.SaveAsync(wareHouseDto);
+                await _WarehouseApiService.SaveAsync(WarehouseDto);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -50,7 +50,7 @@ namespace HospitalManagement.Web.Controllers
 
         public async Task<IActionResult> Update(int id)
         {
-            var building = await _wareHouseApiService.GetByIdAsync(id);
+            var building = await _WarehouseApiService.GetByIdAsync(id);
 
             var buildingsDto = await _buildingApiService.GetAllAsync();
 
@@ -60,18 +60,18 @@ namespace HospitalManagement.Web.Controllers
 
         }
         [HttpPost]
-        public async Task<IActionResult> Update(WareHouseDto wareHouseDto)
+        public async Task<IActionResult> Update(WarehouseDto WarehouseDto)
         {
             if (ModelState.IsValid)
             {
 
-                await _wareHouseApiService.UpdateAsync(wareHouseDto);
+                await _WarehouseApiService.UpdateAsync(WarehouseDto);
 
                 return RedirectToAction(nameof(Index));
 
             }
 
-            var buildingsDto = await _wareHouseApiService.GetAllAsync();
+            var buildingsDto = await _WarehouseApiService.GetAllAsync();
             return View(buildingsDto);
 
         }
@@ -79,7 +79,7 @@ namespace HospitalManagement.Web.Controllers
 
         public async Task<IActionResult> Remove(int id)
         {
-            await _wareHouseApiService.RemoveAsync(id);
+            await _WarehouseApiService.RemoveAsync(id);
             return RedirectToAction(nameof(Index));
         }
     }

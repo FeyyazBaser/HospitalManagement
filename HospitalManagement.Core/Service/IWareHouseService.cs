@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace HospitalManagement.Core.Service
 {
-    public interface IWareHouseService:IService<WareHouse>
+    public interface IWarehouseService:IService<Warehouse>
     {
-        Task<CustomResponseDto<List<WareHouseWithBuildingDto>>> GetWareHousesWithBuilding();
+        Task<CustomResponseDto<List<WarehouseWithBuildingDto>>> GetWarehousesWithBuilding();
     }
 }

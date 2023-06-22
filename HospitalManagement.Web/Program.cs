@@ -6,13 +6,19 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddSession(options =>
+
+{
+    options.IdleTimeout = TimeSpan.FromSeconds(30);
+});
+
 builder.Services.AddHttpClient<ProductApiService>(opt =>
 {
 
     opt.BaseAddress = new Uri(builder.Configuration["BaseUrl"]);
 
 });
-builder.Services.AddHttpClient<WareHouseApiService>(opt =>
+builder.Services.AddHttpClient<WarehouseApiService>(opt =>
 {
 
     opt.BaseAddress = new Uri(builder.Configuration["BaseUrl"]);
@@ -44,11 +50,12 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseSession();
 
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Login}/{action=Index}/{id?}");
 
 app.Run();

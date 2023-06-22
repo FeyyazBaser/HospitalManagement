@@ -13,23 +13,23 @@ using System.Threading.Tasks;
 
 namespace HospitalManagement.Service.Services
 {
-    public class WareHouseService : Service<WareHouse>, IWareHouseService
+    public class WarehouseService : Service<Warehouse>, IWarehouseService
     {
-        private readonly IWareHouseRepository _wareHouseRepository;
+        private readonly IWarehouseRepository _WarehouseRepository;
         private readonly IMapper _mapper;
 
-        public WareHouseService(IGenericRepository<WareHouse> repository, IUnitOfWork unitOfWork,IMapper mapper, IWareHouseRepository wareHouseRepository) : base(repository, unitOfWork)
+        public WarehouseService(IGenericRepository<Warehouse> repository, IUnitOfWork unitOfWork,IMapper mapper, IWarehouseRepository WarehouseRepository) : base(repository, unitOfWork)
         {
-            _wareHouseRepository = wareHouseRepository;
+            _WarehouseRepository = WarehouseRepository;
             _mapper = mapper;
         }
-        public async Task<CustomResponseDto<List<WareHouseWithBuildingDto>>> GetWareHousesWithBuilding()
+        public async Task<CustomResponseDto<List<WarehouseWithBuildingDto>>> GetWarehousesWithBuilding()
         {
-            var wareHouses = await _wareHouseRepository.GetWareHousesWithBuilding();
+            var Warehouses = await _WarehouseRepository.GetWarehousesWithBuilding();
 
-            var wareHousesDto = _mapper.Map<List<WareHouseWithBuildingDto>>(wareHouses);
+            var WarehousesDto = _mapper.Map<List<WarehouseWithBuildingDto>>(Warehouses);
 
-            return CustomResponseDto<List<WareHouseWithBuildingDto>>.Success(200, wareHousesDto);
+            return CustomResponseDto<List<WarehouseWithBuildingDto>>.Success(200, WarehousesDto);
         }
 
     }

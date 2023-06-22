@@ -10,7 +10,7 @@ namespace HospitalManagement.Core.Entities
     {
         public string Name { get; set; }
 
-        ICollection<WareHouse> WareHouses { get; set;}
+        ICollection<Warehouse> Warehouses { get; set;}
 
         ICollection<Room> Rooms { get; set;}
     }

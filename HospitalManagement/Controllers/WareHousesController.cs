@@ -10,51 +10,51 @@ namespace HospitalManagement.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class WareHousesController : CustomBaseController
+    public class WarehousesController : CustomBaseController
     {
         private readonly IMapper _mapper;
-        private readonly IService<WareHouse> _service;
-        private readonly IWareHouseService _wareHouseService;
-        public WareHousesController(IService<WareHouse> service, IMapper mapper,IWareHouseService wareHouseService)
+        private readonly IService<Warehouse> _service;
+        private readonly IWarehouseService _WarehouseService;
+        public WarehousesController(IService<Warehouse> service, IMapper mapper,IWarehouseService WarehouseService)
         {
-            _wareHouseService=wareHouseService;
+            _WarehouseService=WarehouseService;
             _mapper = mapper;
             _service = service;
         }
         [HttpGet]
         public async Task<IActionResult> All()
         {
-            var WareHouses = await _service.GetAllAsync();
-            var WareHouseDtos = _mapper.Map<List<WareHouseDto>>(WareHouses.ToList());
-            return CreateActionResult(CustomResponseDto<List<WareHouseDto>>.Success(200, WareHouseDtos));
+            var Warehouses = await _service.GetAllAsync();
+            var WarehouseDtos = _mapper.Map<List<WarehouseDto>>(Warehouses.ToList());
+            return CreateActionResult(CustomResponseDto<List<WarehouseDto>>.Success(200, WarehouseDtos));
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var WareHouse = await _service.GetByIdAsync(id);
-            var WareHouseDto = _mapper.Map<WareHouseDto>(WareHouse);
-            return CreateActionResult(CustomResponseDto<WareHouseDto>.Success(200, WareHouseDto));
+            var Warehouse = await _service.GetByIdAsync(id);
+            var WarehouseDto = _mapper.Map<WarehouseDto>(Warehouse);
+            return CreateActionResult(CustomResponseDto<WarehouseDto>.Success(200, WarehouseDto));
         }
 
         [HttpGet("[action]")]
-        public async Task<IActionResult> GetWareHousesWithBuilding()
+        public async Task<IActionResult> GetWarehousesWithBuilding()
         {
-            return CreateActionResult(await _wareHouseService.GetWareHousesWithBuilding());
+            return CreateActionResult(await _WarehouseService.GetWarehousesWithBuilding());
         }
 
         [HttpPost]
-        public async Task<IActionResult> Save(WareHouseDto WareHouseDto)
+        public async Task<IActionResult> Save(WarehouseDto WarehouseDto)
         {
-            var WareHouse = await _service.AddAsync(_mapper.Map<WareHouse>(WareHouseDto));
-            var WareHousesDto = _mapper.Map<WareHouseDto>(WareHouse);
-            return CreateActionResult(CustomResponseDto<WareHouseDto>.Success(201, WareHousesDto));
+            var Warehouse = await _service.AddAsync(_mapper.Map<Warehouse>(WarehouseDto));
+            var WarehousesDto = _mapper.Map<WarehouseDto>(Warehouse);
+            return CreateActionResult(CustomResponseDto<WarehouseDto>.Success(201, WarehousesDto));
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update(WareHouseDto WareHouseDto)
+        public async Task<IActionResult> Update(WarehouseDto WarehouseDto)
         {
-            await _service.UpdateAsync(_mapper.Map<WareHouse>(WareHouseDto));
+            await _service.UpdateAsync(_mapper.Map<Warehouse>(WarehouseDto));
 
             return CreateActionResult(CustomResponseDto<NoContentDto>.Success(204));
         }
@@ -62,8 +62,8 @@ namespace HospitalManagement.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Remove(int id)
         {
-            var WareHouse = await _service.GetByIdAsync(id);
-            await _service.RemoveAsync(WareHouse);
+            var Warehouse = await _service.GetByIdAsync(id);
+            await _service.RemoveAsync(Warehouse);
             return CreateActionResult(CustomResponseDto<List<NoContentDto>>.Success(204));
         }
 

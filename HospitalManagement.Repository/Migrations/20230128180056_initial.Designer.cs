@@ -70,12 +70,12 @@ namespace HospitalManagement.Repository.Migrations
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("WareHouseId")
+                    b.Property<int>("WarehouseId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("WareHouseId");
+                    b.HasIndex("WarehouseId");
 
                     b.ToTable("Products", (string)null);
                 });
@@ -110,7 +110,7 @@ namespace HospitalManagement.Repository.Migrations
                     b.ToTable("Rooms", (string)null);
                 });
 
-            modelBuilder.Entity("HospitalManagement.Core.Entities.WareHouse", b =>
+            modelBuilder.Entity("HospitalManagement.Core.Entities.Warehouse", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -139,18 +139,18 @@ namespace HospitalManagement.Repository.Migrations
 
                     b.HasIndex("BuildingId");
 
-                    b.ToTable("WareHouses", (string)null);
+                    b.ToTable("Warehouses", (string)null);
                 });
 
             modelBuilder.Entity("HospitalManagement.Core.Entities.Product", b =>
                 {
-                    b.HasOne("HospitalManagement.Core.Entities.WareHouse", "WareHouse")
+                    b.HasOne("HospitalManagement.Core.Entities.Warehouse", "Warehouse")
                         .WithMany()
-                        .HasForeignKey("WareHouseId")
+                        .HasForeignKey("WarehouseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("WareHouse");
+                    b.Navigation("Warehouse");
                 });
 
             modelBuilder.Entity("HospitalManagement.Core.Entities.Room", b =>
@@ -164,7 +164,7 @@ namespace HospitalManagement.Repository.Migrations
                     b.Navigation("Building");
                 });
 
-            modelBuilder.Entity("HospitalManagement.Core.Entities.WareHouse", b =>
+            modelBuilder.Entity("HospitalManagement.Core.Entities.Warehouse", b =>
                 {
                     b.HasOne("HospitalManagement.Core.Entities.Building", "Building")
                         .WithMany()

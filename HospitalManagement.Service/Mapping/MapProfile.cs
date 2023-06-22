@@ -14,11 +14,11 @@ namespace HospitalManagement.Service.Mapping
         public MapProfile()
         {
             CreateMap<Product, ProductDto>().ReverseMap();
-            CreateMap<WareHouse,WareHouseDto>().ReverseMap();
+            CreateMap<Warehouse,WarehouseDto>().ReverseMap();
             CreateMap<Room,RoomDto>().ReverseMap();
             CreateMap<Building,BuildingDto>().ReverseMap();
-            CreateMap<Product,ProductWithWareHouseDto>().ReverseMap();
-            CreateMap<WareHouse,WareHouseWithBuildingDto>().ReverseMap();
+            CreateMap<Product,ProductWithWarehouseDto>().ReverseMap();
+            CreateMap<Warehouse,WarehouseWithBuildingDto>().ReverseMap();
             CreateMap<Room,RoomWithBuildingDto>().ReverseMap();
 
         }

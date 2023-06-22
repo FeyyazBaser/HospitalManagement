@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace HospitalManagement.Repository.Repositories
 {
-    public class WareHouseRepository : GenericRepository<WareHouse>, IWareHouseRepository
+    public class WarehouseRepository : GenericRepository<Warehouse>, IWarehouseRepository
     {
-        public WareHouseRepository(AppDbContext context) : base(context)
+        public WarehouseRepository(AppDbContext context) : base(context)
         {
 
         }
 
-        async Task<List<WareHouse>> IWareHouseRepository.GetWareHousesWithBuilding()
+        async Task<List<Warehouse>> IWarehouseRepository.GetWarehousesWithBuilding()
         {
-            return await _context.WareHouses.Include(x => x.Building).ToListAsync();
+            return await _context.Warehouses.Include(x => x.Building).ToListAsync();
         }
     }
 }

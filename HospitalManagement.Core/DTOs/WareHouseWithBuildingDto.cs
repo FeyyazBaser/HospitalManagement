@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HospitalManagement.Core.DTOs
 {
-    public class WareHouseWithBuildingDto:WareHouseDto
+    public class WarehouseWithBuildingDto:WarehouseDto
     {
         public BuildingDto Building { get; set; }
     }

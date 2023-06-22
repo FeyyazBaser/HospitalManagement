@@ -20,7 +20,7 @@ namespace HospitalManagement.Repository
 
         public DbSet<Room> Rooms { get; set; }
 
-        public DbSet<WareHouse> WareHouses { get; set; }
+        public DbSet<Warehouse> Warehouses { get; set; }
 
         public DbSet<Product> Products { get; set; }
         public DbSet<User> Users { get; set; }

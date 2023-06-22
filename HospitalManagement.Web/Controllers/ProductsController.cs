@@ -13,12 +13,12 @@ namespace HospitalManagement.Web.Controllers
     {
 
         private readonly ProductApiService _productApiService;
-        private readonly WareHouseApiService _warehouseApiService;
+        private readonly WarehouseApiService _WarehouseApiService;
        
 
-        public ProductsController(WareHouseApiService warehouseApiService, ProductApiService productApiService)
+        public ProductsController(WarehouseApiService WarehouseApiService, ProductApiService productApiService)
         {
-            _warehouseApiService = warehouseApiService;
+            _WarehouseApiService = WarehouseApiService;
             _productApiService = productApiService;
         }
 
@@ -30,9 +30,9 @@ namespace HospitalManagement.Web.Controllers
 
         public async Task<IActionResult> Save()
         {
-            var warehousesDto = await _warehouseApiService.GetAllAsync();
+            var WarehousesDto = await _WarehouseApiService.GetAllAsync();
 
-            ViewBag.warehouses = new SelectList(warehousesDto, "Id", "Name");
+            ViewBag.Warehouses = new SelectList(WarehousesDto, "Id", "Name");
 
             return View();
         }
@@ -52,9 +52,9 @@ namespace HospitalManagement.Web.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            var warehousesDto = await _warehouseApiService.GetAllAsync();
+            var WarehousesDto = await _WarehouseApiService.GetAllAsync();
 
-            ViewBag.warehouses = new SelectList(warehousesDto, "Id", "Name");
+            ViewBag.Warehouses = new SelectList(WarehousesDto, "Id", "Name");
             return View();
         }
 
@@ -64,10 +64,10 @@ namespace HospitalManagement.Web.Controllers
             var product = await _productApiService.GetByIdAsync(id);
 
 
-            var warehousesDto = await _warehouseApiService.GetAllAsync();
+            var WarehousesDto = await _WarehouseApiService.GetAllAsync();
 
 
-            ViewBag.warehouses = new SelectList(warehousesDto, "Id", "Name", product.WareHouseId);
+            ViewBag.Warehouses = new SelectList(WarehousesDto, "Id", "Name", product.WarehouseId);
 
             return View(product);
 
@@ -84,11 +84,11 @@ namespace HospitalManagement.Web.Controllers
 
             }
 
-            var warehousesDto = await _warehouseApiService.GetAllAsync();
+            var WarehousesDto = await _WarehouseApiService.GetAllAsync();
 
 
 
-            ViewBag.warehouses = new SelectList(warehousesDto, "Id", "Name", productDto.WareHouseId);
+            ViewBag.Warehouses = new SelectList(WarehousesDto, "Id", "Name", productDto.WarehouseId);
 
             return View(productDto);
 

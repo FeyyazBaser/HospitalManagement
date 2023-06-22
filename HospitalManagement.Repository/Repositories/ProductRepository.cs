@@ -15,9 +15,9 @@ namespace HospitalManagement.Repository.Repositories
         {
 
         }
-        public async Task<List<Product>> GetProductsWithWareHouse()
+        public async Task<List<Product>> GetProductsWithWarehouse()
         {
-            return await _context.Products.Include(x => x.WareHouse).ToListAsync();
+            return await _context.Products.Include(x => x.Warehouse).ToListAsync();
         }
     }
 }
