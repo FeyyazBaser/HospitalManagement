@@ -25,7 +25,7 @@ namespace HospitalManagement.API.Controllers
 
         }
         [HttpPost("~/api/Register")]
-        public async Task<IActionResult> Register([FromBody] RegisterDto registerDto)
+        public async Task<IActionResult> Register([FromForm] RegisterDto registerDto)
         {
             if (await _authRepository.UserExist(registerDto.UserName))
             {
@@ -47,7 +47,7 @@ namespace HospitalManagement.API.Controllers
 
         }
         [HttpPost]
-        public async Task<IActionResult> Login([FromBody] LoginDto loginDto)
+        public async Task<IActionResult> Login([FromForm] LoginDto loginDto)
         {
             var user = await _authRepository.Login(loginDto.UserName, loginDto.Password);
             if (user == null)
